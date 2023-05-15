@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<center>
+  <h1>Non Preemptive Priority</h1>
+</center>
+
+{% comment %} "finishedjob_arrival[0]":finishedjob_arrival[0],"finishing_time":finishing_time {% endcomment %}
+<center>
+  <b> Gantt Chart </b>
+</center>
+
+<center>
+  <table border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+    <tr>
+      {% for f in finishedjob %}
+        <th style="text-align:center", width="70px">
+          {{ f }}
+        </th>
+      {% endfor %}
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th style="text-align:center", width="70px"> {{ firstfinishedjob_arrival }} </th>
+      {% for t in finishing_time %}
+        <th style="text-align:center", width="70px">
+          {{ t }}
+        </th>
+      {% endfor %}
+    </tr>
+  </table>
+</center>
+<br>
+<br>
+<br>
+<center>
+  <b> Table of Results </b>
+</center>
+
+<table border="1" cellpadding="5" cellspacing="0" style="border-collapse:collapse;"align="center">
+    <tr>
+      {% for i in column_name %}
+        <th style="text-align:center">
+          {{i}}
+        </th>
+      {% endfor %}
+    </tr>
+
+    <tr>
+      {% for all_rows in values %}
+      <tr> 
+        {% for every_column in all_rows %}
+          <td style="text-align:center">{{ every_column }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}  
+    </tr>
+</table>
+
+<center><p> Total Turnaround Time: {{totaltt}}</p></center>
+<center><p> Average Turnaround Time: {{avgtt}}</p></center>
+<center><p> Total Waiting Time: {{totalwt}}</p></center>
+<center><p> Average Waiting Time: {{avgwt}}</p></center>
+
+{% endblock %}

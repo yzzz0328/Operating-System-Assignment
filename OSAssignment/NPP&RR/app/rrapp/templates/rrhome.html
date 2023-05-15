@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>CPU Scheduling Program RR</h1>
+
+<form action="getrr">
+    <table>
+        <tr>
+            <th style="text-align:left">Enter the processes</th>
+            <th><input type="text" name="processes"><br></th>
+        </tr>
+
+        <tr>
+            <th style="text-align:left">Enter arrival times</th> 
+            <th><input type="text" name="arrivaltimeslist"><br></th>
+        </tr>
+
+        <tr>
+            <th style="text-align:left">Enter burst times</th> 
+            <th><input type="text" name="bursttimeslist"><br></th>
+        </tr>
+
+        <tr>
+            <th style="text-align:left">Enter priority</th> 
+            <th><input type="text" name="prioritylist"><br></th>
+        </tr>
+    </table>
+    <br>
+    <input type="submit"> <br>
+    {{errormessage}}
+
+</form>
+
+{% endblock %}
